@@ -13,7 +13,7 @@ COPY ./src /workspace/app/src/
 
 # 빌드 실행
 RUN /workspace/app/gradlew build
-RUN mv /workspace/app/build/libs/myserver-0.0.1-SNAPSHOT.jar /workspace/app/app.jar
+RUN mv /workspace/app/build/libs/myweb-0.0.1-SNAPSHOT.jar /workspace/app/app.jar
 
 
 
