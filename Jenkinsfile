@@ -31,9 +31,9 @@ pipeline {
 
     stage('Deploy') {
       steps {
-        sh '''docker stop spring_server
+        sh '''docker pull devsince2021/spring-server:latest
+docker stop spring_server
 docker rm spring_server
-docker pull devsince2021/spring-server:lastest
 docker run -d --name spring_server -p 8070:8080 devsince2021/spring:latest'''
       }
     }
