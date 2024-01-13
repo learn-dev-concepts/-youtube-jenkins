@@ -34,7 +34,7 @@ pipeline {
         sh '''docker pull devsince2021/spring-server:latest
 docker stop spring_server || true
 docker rm spring_server || true
-docker run -d --name spring_server -p 8070:8080 devsince2021/spring:latest'''
+docker run -d --name spring_server -p 8070:8080 devsince2021/spring-server:latest'''
       }
     }
 
