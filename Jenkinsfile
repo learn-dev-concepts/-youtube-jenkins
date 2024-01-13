@@ -19,5 +19,12 @@ pipeline {
       }
     }
 
+    stage('Docker-Push') {
+      steps {
+        sh '''docker buildx build --platform linux/amd64 --push -t devsince2021/spring-server .
+'''
+      }
+    }
+
   }
 }
