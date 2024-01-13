@@ -19,10 +19,12 @@ pipeline {
       }
     }
 
-    stage('Docker-Push') {
+       stage("Docker Push") {
       steps {
-        sh '''docker buildx build --platform linux/amd64 --push -t devsince2021/spring-server .
-'''
+         withCredentials([usernamePassword(credentialsId: 'docker_hub_token', usernameVariable: 'DOCKER_HUB_USERNAME', passwordVariable: 'DOCKER_HUB_ACCESS_TOKEN')]) {
+            sh 'docker login -u $DOCKER_HUB_USERNAME -p $DOCKER_HUB_ACCESS_TOKEN'
+            sh 'docker buildx build —platform linux/amd64 —push -t devsince2021/spring-server .'
+         }
       }
     }
 
